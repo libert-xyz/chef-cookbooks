@@ -1,0 +1,11 @@
+{
+  "name":"webserver",
+  "default_attributes":{
+    "apache": {
+        "greeting":"Webinar"
+    }
+  },
+
+  "run_list": ["recipe[learn_chef_httpd]"
+                ]
+}
