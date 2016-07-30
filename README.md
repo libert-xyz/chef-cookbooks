@@ -1,7 +1,8 @@
 Verify your connection to the Chef server
 ------------------------------------------
+
 First, validate that your ~/learn-chef/.chef contains your knife.rb file and your private key file.
----------------------------------------------------------------------------------------------------
+
 
 	ls ~/learn-chef/.chef
 	knife.rb  your_name.pem
@@ -11,7 +12,6 @@ knife ssl check
 Create a cookbook
 -----------------
 First, from your ~/chef-repo directory, create a cookbooks directory and cd there.
-----------------------------------------------------------------------------------
 
 mkdir cookbooks
 cd cookbooks
@@ -25,8 +25,8 @@ chef generate template learn_chef_httpd index.html
 
 Bootstrap using key-based authentication
 -----------------------------------------
+
 Replace ADDRESS with your remote node's external address, USER with your username, and IDENTITY_FILE with your SSH identify file, for example ~/.ssh/my.pem.
--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 knife bootstrap ADDRESS --ssh-user USER --sudo --identity-file IDENTITY_FILE --node-name node1 --run-list 'recipe[learn_chef_httpd]'
 
@@ -50,9 +50,8 @@ knife cookbook upload learn_chef_httpd
 
 
 To run chef-client on your node remotely from your workstation, you'll run the knife ssh command.
--------------------------------------------------------------------------------------------------
 knife ssh takes the command to run on the node as an argument.
---------------------------------------------------------------
+
 
 
 Update your node using key-based authentication
@@ -84,6 +83,10 @@ Add ROle to Node
 knife node run list add module3 'role[webserver]'
 
 
+Upload a role to the server
+----------------------------
+
+knife role from file roles/webserver.json
 
 List Nodes
 ----------
@@ -138,3 +141,9 @@ ROLES
 
 encapsulate the run-list and attributes for a server.
 easy to configure many nodes 'Identically'
+
+Data Bags
+----------
+Stores information about the infrastructure , are JSON Data
+
+knife upload data_bags/vhosts/

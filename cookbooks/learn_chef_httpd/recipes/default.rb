@@ -22,3 +22,7 @@ end
 service 'iptables' do
   action :stop
 end
+
+execute 'disable SElinux' do
+  command "sed -i 's/enforcing/disabled/g' /etc/selinux/config /etc/selinux/config"
+end

@@ -4,5 +4,12 @@
       <h2>Attributes: <%= node['apache']['greeting'] %></h2>
       <h2> from: <%= node['fqdn'] %> </h2>
       <h3>My name is <%= node['hostname'] %></h3>
+
+      <p>
+        We love <%= @site_name %>
+      </p>
+      <p>
+        Served from <%= node['ipaddress'] %>:<%= @port %>
+      </p>
   </body>
 </html>

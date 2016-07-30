@@ -6,4 +6,4 @@ description      'Installs and configures package httpd and sets a basic home pa
 long_description 'Installs and configures package httpd and sets a basic home page. This cookbook is used by the Learn Chef tutorials. https://learn.chef.io'
 supports         'centos'
 supports         'redhat'
-version          '0.2.0'
+version          '0.3.0'
