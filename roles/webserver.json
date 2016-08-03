@@ -8,6 +8,5 @@
 
   "run_list": ["recipe[learn_chef_httpd]",
               "recipe[learn_chef_httpd::vhosts]"
-
   ]
 }

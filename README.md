@@ -147,3 +147,22 @@ Data Bags
 Stores information about the infrastructure , are JSON Data
 
 knife upload data_bags/vhosts/
+
+
+environments
+--------------
+
+Each envioroments may include attributes necesary for configuring the insfrastructure
+in that environment.
+	-Production needs certain Yum repos
+	- QA needs differents YUM repos
+	 - The version of chef cookboos to be used
+
+knife environment show envName
+
+knife environment list
+
+knife environment from file dev.rb
+
+
+knife bootstrap rodrigo-zalles2.mylabserver.com --ssh-user root  -P sesamo321 --node-name module3 -r 'role[webserver]' -E production
