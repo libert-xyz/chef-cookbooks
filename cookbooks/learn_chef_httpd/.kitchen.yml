@@ -6,11 +6,15 @@ provisioner:
   name: chef_zero
 
 platforms:
-  - name: ubuntu-12.04
-  - name: centos-6.4
+  - name: centos-7.2
 
 suites:
-  - name: default
+  - name: production
+
+    data_bags_path: "/home/tux/Documents/repositories/chef-cookbooks/data_bags/vhosts"
+
+
     run_list:
       - recipe[learn_chef_httpd::default]
+      - recipe[learn_chef_httpd::vhosts]
     attributes:

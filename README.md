@@ -149,10 +149,10 @@ Stores information about the infrastructure , are JSON Data
 knife upload data_bags/vhosts/
 
 
-environments
+Environments
 --------------
 
-Each envioroments may include attributes necesary for configuring the insfrastructure
+Each enviroments may include attributes necesary for configuring the insfrastructure
 in that environment.
 	-Production needs certain Yum repos
 	- QA needs differents YUM repos
@@ -166,3 +166,24 @@ knife environment from file dev.rb
 
 
 knife bootstrap rodrigo-zalles2.mylabserver.com --ssh-user root  -P sesamo321 --node-name module3 -r 'role[webserver]' -E production
+
+
+Test Kitchen
+------------
+- enables you to run your cookbooks in a temporary environment that resembles production.
+
+kitchen list
+
+kitchen create
+
+
+- Apply the cookbook to your Test Kitchen instance
+
+kitchen converge
+
+- Verify that your Test Kitchen instance contains the updated MOTD
+
+kitchen login
+
+
+knife cookbook site show selinux  | grep latest_version
