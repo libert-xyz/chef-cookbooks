@@ -3,8 +3,8 @@ driver:
   name: vagrant
   network:
     - ["forwarded_port", {guest: 80, host: 8080}]
-    - ["private_network", {ip: "192.168.33.33"}]
-    
+    - ["private_network", {ip: "192.168.33.35"}]
+
 provisioner:
   name: chef_zero
 
@@ -24,3 +24,7 @@ suites:
     run_list:
       - recipe[awesome_customers::default]
     attributes:
+      awesome_customers:
+        database:
+          root_password = 'mysql_root_password'
+          admin_password = 'mysql_root_password'

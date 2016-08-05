@@ -187,3 +187,14 @@ kitchen login
 
 
 knife cookbook site show selinux  | grep latest_version
+
+
+Berkshelf
+----------
+instead of running the "knife cookbook upload" command to manually upload each dependency.
+Berkshelf uploads your cookbooks to the Chef server and retrieves the cookbooks that your cookbook depends on.
+
+berks install
+berks update
+
+Berkshelf installs dependent cookbooks to the ~/.berkshelf/cookbooks directory so that they can be shared among all of your cookbooks.
