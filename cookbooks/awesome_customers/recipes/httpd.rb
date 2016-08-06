@@ -40,6 +40,16 @@ template "#{node['awesome_customers']['document_root']}/index.php" do
   group node['awesome_customers']['group']
 end
 
+##write php info
+
+template "#{node['awesome_customers']['document_root']}/info.php" do
+  source 'info.php.erb'
+  mode '0644'
+  owner node['awesome_customers']['user']
+  group node['awesome_customers']['group']
+end
+
+
 
 # Install the mod_php Apache module.
 httpd_module 'php' do
