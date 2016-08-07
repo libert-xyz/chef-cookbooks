@@ -37,11 +37,11 @@ describe 'tomcat::default' do
     it { should be_grouped_into 'tomcat' }
   end
 
-  describe file('/opt/tomcat/conf/*') do
-    it { should be_readable.by('group') }
-    it { should be_executable.by('group') }
-    it { should be_writable.by('group') }
-  end
+  # describe file('/opt/tomcat/conf/*') do
+  #   it { should be_readable.by('group') }
+  #   it { should be_executable.by('group') }
+  #   it { should be_writable.by('group') }
+  # end
 
 #webapps/ work/ temp/ logs/
   %w[webapps work temp logs bin lib].each do |path|
