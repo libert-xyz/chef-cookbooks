@@ -1,0 +1,39 @@
+<VirtualHost *:80>
+  ServerName <%= node['hostname'] %>
+  ServerAdmin 'ops@example.com'
+
+  DocumentRoot <%= "#{node['django1.8']['path']}/booklos" %>
+  <Directory "/">
+          Options FollowSymLinks
+          AllowOverride None
+  </Directory>
+  <!-- <Directory <%= "#{node['django1.8']['path']}/booklos" %>
+          Options Indexes FollowSymLinks MultiViews
+          AllowOverride None
+          Require all granted
+  </Directory> -->
+
+  ErrorLog /var/log/httpd/error.log
+
+  LogLevel warn
+
+  CustomLog /var/log/httpd/access.log combined
+  ServerSignature Off
+
+  AddType application/x-httpd-php .php
+  AddType application/x-httpd-php-source .phps
+  DirectoryIndex index.php index.html
+
+  ##Django WSGI
+
+  WSGIScriptAlias / <%= "#{node['django1.8']['path']}/booklos/src/wsgi.py" %>
+  WSGIPythonPath <%= "#{node['django1.8']['path']}/venv/lib/python2.7/site-packages" %>
+
+
+  <Directory <%= "#{node['django1.8']['path']}/booklos" %> >
+  <Files wsgi.py>
+  Require all granted
+  </Files>
+  </Directory>
+
+</VirtualHost>
