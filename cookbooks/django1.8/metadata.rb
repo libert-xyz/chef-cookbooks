@@ -4,7 +4,7 @@ maintainer_email 'you@example.com'
 license 'all_rights'
 description 'Installs/Configures django1.8'
 long_description 'Installs/Configures django1.8'
-version '0.1.0'
+version '0.2.0'
 
 
 depends 'selinux', '= 0.9.0'

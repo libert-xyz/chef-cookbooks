@@ -2,7 +2,12 @@
 include_recipe 'poise-python'
 
 
-python_runtime '2'
+# python_runtime 'myapp' do
+#   provider :system
+#   version '2.7'
+# end
+
+
 python_virtualenv "#{node['django1.8']['path']}/venv"
 
 
