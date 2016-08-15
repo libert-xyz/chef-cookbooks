@@ -19,10 +19,10 @@ template '/etc/httpd/conf/httpd.conf' do
 end
 
 
-directory node['wp']['wp_path'] do
-  owner 'apache'
-  group 'apache'
-end
+# directory node['wp']['wp_path'] do
+#   owner 'apache'
+#   group 'apache'
+# end
 
 execute 'permissions' do
   command "chown -R apache:apache #{node['wp']['wp_path']}"

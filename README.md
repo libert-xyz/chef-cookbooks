@@ -198,3 +198,9 @@ berks install
 berks update
 
 Berkshelf installs dependent cookbooks to the ~/.berkshelf/cookbooks directory so that they can be shared among all of your cookbooks.
+
+kife with encrpted data bag
+----------------------------
+
+knife bootstrap IP --ssh-user ec2-user --sudo --identity-file key.pem --node-name wpTest --secret-file databag_secret --run-list 'recipe[wp]'
+

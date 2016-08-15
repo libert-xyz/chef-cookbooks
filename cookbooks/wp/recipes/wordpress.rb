@@ -6,8 +6,13 @@
 
 root_password = data_bag_item("mysql_pass","pass")
 
+directory node['wp']['wp_path'] do
+  mode '0755'
+  action :create
+end
+
 remote_file "/root/latest.tar.gz" do
-  #if_not FILE.exists?('/root/latest.tar.gz')
+  if_not FILE.exists?('/root/latest.tar.gz')
   source node['wp']['wp_package']
   action :create
   notifies :run, "execute[untar]", :immediately
@@ -16,12 +21,13 @@ end
 execute "untar" do
   command "tar -xvzf /root/latest.tar.gz"
   notifies :run, "execute[move]", :immediately
-  #action: nothing
+  action: nothing
 end
+
 
 execute "move" do
   command "cp -r /wordpress/* #{node['wp']['wp_path']}"
-  #action: nothing
+  action: nothing
 end
 
 # execute "permissions" do
