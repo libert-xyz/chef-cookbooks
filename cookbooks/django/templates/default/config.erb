@@ -1,0 +1,15 @@
+# Ensure that Apache listens on port 80
+<VirtualHost *:80>
+    DocumentRoot "/var/www/<%=node['django']['fqdn']%>"
+    ServerName <%=node['django']['fqdn']%>
+    ServerAlias www.<%=node['django']['fqdn']%>
+    WSGIScriptAlias / <%=node['django']['path']%>/<%=node['django']['fqdn']%>/src/wsgi.py
+
+
+    <Directory <%=node['django']['path']%>/<%=node['django']['fqdn'] %>>
+            <Files wsgi.py>
+            Require all granted
+            </Files>
+    </Directory>
+
+</VirtualHost>

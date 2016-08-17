@@ -1,0 +1,27 @@
+ServerName default-centos-72
+ServerRoot /etc/httpd-web
+PidFile /var/run/httpd-web/httpd.pid
+User apache
+Group apache
+Timeout 400
+ErrorLog /var/log/httpd-web/error_log
+LogLevel warn
+KeepAlive On
+MaxKeepAliveRequests 100
+KeepAliveTimeout 5
+DefaultType None
+HostnameLookups off
+
+
+Listen 0.0.0.0:80
+Listen 0.0.0.0:443
+
+IncludeOptional conf.d/*.load
+IncludeOptional conf.modules.d/*.load
+IncludeOptional conf.d/*.conf
+IncludeOptional conf.modules.d/*.conf
+LoadModule wsgi_module modules/mod_wsgi.so
+
+
+##Django WSGI
+WSGIPythonPath <%= node['django']['path']%>/<%= node['django']['fqdn']%>:<%= node['django']['path']%>/venv/lib/python2.7/site-packages
