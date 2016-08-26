@@ -18,3 +18,8 @@ default['wp']['wp_path'] = '/var/www/wp'
 #Wordpress install
 
 default['wp']['wp_package'] = 'https://wordpress.org/latest.tar.gz'
+
+##Repository
+
+default["wp"]["url"] = 'https://github.com/rschmidtz/wordpress.git'
+default["wp"]["revision"] = 'master'
